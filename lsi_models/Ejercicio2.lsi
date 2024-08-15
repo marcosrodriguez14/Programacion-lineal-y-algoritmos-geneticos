@@ -1,0 +1,39 @@
+head section
+
+Integer getnCursos()
+Integer getmTematicas()
+Integer getnCentros()
+Integer getmaxCentros()
+Integer tieneTematica(Integer i,Integer j)
+Integer imparteCentro(Integer i , Integer k)
+Double getPrecio(Integer i)
+
+Integer n = getnCursos()
+Integer m = getmTematicas()
+Integer nc = getnCentros()
+Integer maxCentros = getmaxCentros()
+
+
+goal section  
+
+min sum(getPrecio(i) x[i], i in 0 .. n)
+
+
+constraints section
+
+//Entre todos los cursos seleccionados se deben cubrir todas las temáticas
+
+sum( tieneTematica(i,j) x[i],i in 0 .. n) >= 1, j in 1 .. m + 1
+
+//No se pueden elegir cursos de más de un número determinado de centros diferentes
+
+sum (y[k], k in 0 .. nc) <= maxCentros
+
+//	Relacionar variables xi e yk
+
+imparteCentro(i,k) x[i] - y[k] <= 0, i in 0 .. n , k in 0 .. nc
+
+bin
+
+x[i], i in 0 .. n
+y[k], k in 0 .. nc

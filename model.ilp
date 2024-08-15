@@ -1,0 +1,41 @@
+\ Model _copy
+\ LP format - for model browsing. Use MPS format to capture full model detail.
+Maximize
+ 
+Subject To
+ a4: x_4_0 + x_4_1 + x_4_2 + x_4_3 + x_4_4 >= 10
+ a5: x_5_0 + x_5_1 + x_5_2 + x_5_3 + x_5_4 >= 4
+ a7: x_7_0 + x_7_1 + x_7_2 + x_7_3 + x_7_4 >= 30
+ b3: x_4_0 + x_5_0 + x_7_0 = 0
+ b7: - 2 y_1 + x_4_1 + x_5_1 + x_7_1 = 0
+ b11: - 15 y_2 + x_4_2 + x_5_2 + x_7_2 = 0
+ b15: - 5 y_3 + x_4_3 + x_5_3 + x_7_3 = 0
+ b19: - 2 y_4 + x_4_4 + x_5_4 + x_7_4 = 0
+ c1: y_1 <= 1
+ c2: y_2 <= 1
+ c3: y_3 <= 1
+ c4: y_4 <= 1
+Bounds
+ y_1 free
+ y_2 free
+ y_3 free
+ y_4 free
+ x_4_0 free
+ x_4_1 free
+ x_4_2 free
+ x_4_3 free
+ x_4_4 free
+ x_5_0 free
+ x_5_1 free
+ x_5_2 free
+ x_5_3 free
+ x_5_4 free
+ x_7_0 free
+ x_7_1 free
+ x_7_2 free
+ x_7_3 free
+ x_7_4 free
+Generals
+ y_1 y_2 y_3 y_4 x_4_0 x_4_1 x_4_2 x_4_3 x_4_4 x_5_0 x_5_1 x_5_2 x_5_3
+ x_5_4 x_7_0 x_7_1 x_7_2 x_7_3 x_7_4
+End

@@ -1,0 +1,28 @@
+head section
+
+
+Double getPorcentaje(Integer j, Integer i)
+Double getBeneficio(Integer i)
+Integer getKilogramos(Integer j)
+Integer getmVariedades()
+Integer getnTipos()
+ 
+Integer m = getmVariedades()
+Integer n = getnTipos()
+
+ 
+goal section
+ 
+max sum(getBeneficio(i) x[i], i in 0 .. m) 
+ 
+constraints section
+
+ //Las cantidades de cada tipo de café que se utilicen para elaborar las distintas variedades no puede 
+ //exceder la cantidad total de kg disponibles de cada tipo de café.
+ 
+sum(getPorcentaje(j,i) x[i], i in 0 .. m)  <= getKilogramos(j) , j in 0 .. n
+
+
+int
+
+x[i] , i in 0 .. m

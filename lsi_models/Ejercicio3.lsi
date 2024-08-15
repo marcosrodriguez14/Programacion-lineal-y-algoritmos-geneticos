@@ -1,0 +1,45 @@
+head section
+
+Integer getnInvestigadores()
+Integer geteEspecialidades()
+Integer getmTrabajos()
+
+Integer tieneEspecialidad(Integer i,Integer k)
+Integer getCapacidad(Integer i)
+Integer diasNecesarios(Integer j, Integer k)
+Integer getCalidadTrabajo(Integer j)
+
+Integer n = getnInvestigadores()
+Integer e = geteEspecialidades()
+Integer m = getmTrabajos()
+
+
+goal section  
+
+//Objetivo: maximizar calidad de los trabajos
+
+max sum(getCalidadTrabajo(j) y[j], j in 0 .. m) 
+
+
+constraints section
+//Para cada trabajador no se pueden superar su cantidad de dias disponibles
+
+sum(x[i,j], j in 0 .. m ) <= getCapacidad(i), i in 0 .. n
+
+//Para cada trabajo y cada especialidad la suma de los dias de trabajo  por cada investigador tiene
+//que ser igual a los dias necesarios para realizarla
+
+sum(tieneEspecialidad(i,k) x[i,j], i in 0 .. n) - diasNecesarios(j,k) y[j] = 0 ,j in 0 .. m, k in 0 .. e
+
+
+
+//la variable binaria solo puede ser 0 o 1
+
+y[j] <= 1, j in 0 .. m
+
+
+int
+x[i,j], i in 0 .. n, j in 0 .. m
+y[j], j in 0 .. m
+
+
